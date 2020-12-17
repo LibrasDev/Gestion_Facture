@@ -32,12 +32,12 @@ public class Facture {
         return prixHT;
     }
 
-    public void ajouterOuModifierProduit(Produit produit, int quantiteDuProduit) {
+    private void ajouterOuModifierProduit(Produit produit, int quantiteDuProduit) {
         for (Map.Entry<Produit, Integer> modifierproduit : produitCommandes.entrySet()) {
             if (produit.equals(modifierproduit.getKey())) {
-                        modifierproduit.setValue(quantiteDuProduit);
-                            if (modifierproduit.getValue() <= 0) {
-                                produitCommandes.remove(produit);
+                modifierproduit.setValue(quantiteDuProduit);
+                    if (modifierproduit.getValue() <= 0) {
+                        produitCommandes.remove(produit);
             } else {
                 produitCommandes.put(produit, quantiteDuProduit);
                 }
@@ -45,7 +45,7 @@ public class Facture {
         }
     }
 
-    public void retirerProduit(Produit produit) {
+    private void retirerProduit(Produit produit) {
         produitCommandes.remove(produit);
     }
 
